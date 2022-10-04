@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap');
+
+:root{
+  --brand-color:#021e3e;
+  --blue-grey-color:#002B5B;
+  --light-blue-color: #256D85;
+  --lighter-blue-color: #8FE3CF;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 a {
@@ -21,6 +29,6 @@ a {
   }
   body {
     color: white;
-    background: black;
+    background: var(--blue-grey-color);
   }
 }
