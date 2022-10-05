@@ -29,12 +29,22 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+
 }
 
 .students{
     width: 500px;
+    padding: 24px;
 }
 
-.students{
+.student_lists{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
 
+.title_section{
+    text-align: center;
 }
