@@ -4,10 +4,12 @@ import Link from "next/link";
 import styles from "./Navbar.module.css";
 import { BsX } from "react-icons/bs";
 import { BsList } from "react-icons/bs";
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 function Navbar() {
 
     const[isMenuSelected, setIsMenuSelected] = useState(false)
+    const { data: session, status } = useSession();
 
     const menuSelectedHandle = () => {
         setIsMenuSelected(!isMenuSelected)
@@ -36,6 +38,19 @@ function Navbar() {
                     <Link href={"/"}>
                         <li className={styles.item}>Kontak</li>
                     </Link>
+                    {status === 'authenticated' ? (
+                        <>
+                            <li>
+                                <a onClick={() => signOut()}>Sign Out</a>
+                            </li>
+                        </>
+                        ) : (
+                        <>
+                          <li>
+                            <a onClick={() => signIn()}>Sign In</a>
+                          </li>
+                        </>
+                    )}
                 </ul>
             </div>
         </nav>
