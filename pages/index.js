@@ -52,7 +52,7 @@ export default function Home() {
         <Section>
           <main className={styles.data_mahasiswa}>
               <div className={styles.students}>
-                <h1 className={styles.title}>Profil Telkom University</h1>
+                <h1 className={styles.title}>Profil Alumni Telkom University</h1>
                 <p className={styles.text}>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia architecto tenetur asperiores corporis similique, ducimus, doloremque hic animi expedita nostrum, illo exercitationem ullam possimus? Ullam dolorum ipsum sapiente aspernatur eos exercitationem pariatur, voluptatibus a, quisquam quia necessitatibus temporibus obcaecati ut.
                 </p>
@@ -66,7 +66,7 @@ export default function Home() {
               <div className={styles.student_lists}>
                 {
                   mhs.length != 0 && mhs.map(m => {
-                    return <Card id={m.id} image={m.image} location={m.location} name={m.name} jurusan={m.jurusan}/>
+                    return <Card key={m.id} id={m.id} image={m.image} location={m.location} name={m.name} jurusan={m.jurusan}/>
                   })
 
                 }

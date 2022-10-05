@@ -19,8 +19,7 @@ function Navbar() {
     return (
         <nav className={styles.navbar}>
             <div className={styles.logo}>
-                <span className={styles.selected}>D</span>
-                {"'"}Notation
+                Tel-U Akrab
             </div>
             {isMenuSelected && <BsList className={styles.icon}/>}
             <div className={styles.menus}>
@@ -40,13 +39,13 @@ function Navbar() {
                     </Link>
                     {status === 'authenticated' ? (
                         <>
-                            <li>
+                            <li className={styles.item}>
                                 <a onClick={() => signOut()}>Sign Out</a>
                             </li>
                         </>
                         ) : (
                         <>
-                          <li>
+                          <li className={styles.item}>
                             <a onClick={() => signIn()}>Sign In</a>
                           </li>
                         </>
