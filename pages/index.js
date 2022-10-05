@@ -5,8 +5,27 @@ import Layout from '../components/Layout/Layout'
 import Section from '../components/Section/Section'
 import Button from '../components/Button/Button'
 import alumni from './alumni.jpg'
+import Card from '../components/Card/Card'
+import {mahasiswa} from '../data/mahasiswa'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
+  const[mhs, setMhs] =useState([])
+
+  const fetchMahasiswa = async () => {
+    try{
+        const response = await fetch('/api/mahasiswas');
+        const data = await response.json();
+        setMhs(data) 
+    }catch(err){
+        console.error('Error' + err);
+    }
+};
+
+  useEffect(()=>{
+    fetchMahasiswa()
+  })
+
   return (
     <div>
       <Head>
@@ -39,6 +58,19 @@ export default function Home() {
                 </p>
               </div>
               <Image src={alumni} width={400} height={300}/>
+          </main>
+        </Section>
+        <Section>
+          <main className={styles.data_mahasiswa_aktif}>
+              <h1 className={styles.title_section}>Data Mahasiswa</h1>
+              <div className={styles.student_lists}>
+                {
+                  mhs.length != 0 && mhs.map(m => {
+                    return <Card id={m.id} image={m.image} location={m.location} name={m.name} jurusan={m.jurusan}/>
+                  })
+
+                }
+              </div>
           </main>
         </Section>
       </Layout>
